@@ -19,7 +19,7 @@ class ResPartner(models.Model):
         compute='_compute_phonecall_count',
     )
 
-    @api.multi
+    
     def _compute_phonecall_count(self):
         """Calculate number of phonecalls."""
         for partner in self:

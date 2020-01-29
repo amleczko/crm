@@ -9,7 +9,7 @@ from odoo import api, fields, models
 class CrmLead(models.Model):
     _inherit = 'crm.lead'
 
-    @api.multi
+    
     @api.onchange('location_id')
     def on_change_city(self):
         if self.location_id:

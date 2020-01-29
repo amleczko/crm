@@ -55,7 +55,7 @@ class Lead(models.Model):
         return self.env['crm.stage'].search(
             search_domain, order=order, limit=1)
 
-    @api.multi
+    
     def merge_opportunity(self, user_id=False, team_id=False):
         opportunities_head = super(Lead, self).merge_opportunity(
             user_id, team_id)
@@ -70,7 +70,7 @@ class Lead(models.Model):
                 })
         return opportunities_head
 
-    @api.multi
+    
     def _convert_opportunity_data(self, customer, team_id=False):
         value = super(Lead, self)._convert_opportunity_data(customer, team_id)
         if not self.stage_id or self.stage_id.lead_type == 'lead':

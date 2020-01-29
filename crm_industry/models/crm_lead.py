@@ -22,7 +22,7 @@ class CrmLead(models.Model):
                     'The secondary industries must be different from the main '
                     'industry.'))
 
-    @api.multi
+    
     def _create_lead_partner_data(self, name, is_company, parent_id=False):
         """Propagate industries in the creation of partner.
         """

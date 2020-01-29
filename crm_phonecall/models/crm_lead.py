@@ -20,7 +20,7 @@ class CrmLead(models.Model):
         compute='_compute_phonecall_count',
     )
 
-    @api.multi
+    
     def _compute_phonecall_count(self):
         """Calculate number of phonecalls."""
         for lead in self:
@@ -28,7 +28,7 @@ class CrmLead(models.Model):
                 'crm.phonecall'].search_count(
                 [('opportunity_id', '=', lead.id)])
 
-    @api.multi
+    
     def button_open_phonecall(self):
         self.ensure_one()
         action = self.env.ref('crm_phonecall.crm_case_categ_phone_incoming0')

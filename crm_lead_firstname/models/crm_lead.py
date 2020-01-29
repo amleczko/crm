@@ -10,7 +10,7 @@ class CrmLead(models.Model):
     contact_name = fields.Char("First name")
     contact_lastname = fields.Char("Last name")
 
-    @api.multi
+    
     def _create_lead_partner_data(self, name, is_company, parent_id=False):
         """Ensure first and last names of contact match those in lead."""
         lead_partner_data = super(CrmLead, self)._create_lead_partner_data(

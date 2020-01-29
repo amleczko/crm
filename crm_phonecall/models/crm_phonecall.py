@@ -111,7 +111,7 @@ class CrmPhonecall(models.Model):
             self.partner_phone = self.partner_id.phone
             self.partner_mobile = self.partner_id.mobile
 
-    @api.multi
+    
     def write(self, values):
         """Override to add case management: open/close dates."""
         if values.get('state'):
@@ -123,7 +123,7 @@ class CrmPhonecall(models.Model):
                 values['duration'] = 0.0
         return super(CrmPhonecall, self).write(values)
 
-    @api.multi
+    
     def compute_duration(self):
         """Calculate duration based on phonecall date."""
         for phonecall in self.filtered('date'):
@@ -133,7 +133,7 @@ class CrmPhonecall(models.Model):
                 phonecall.write(values)
         return True
 
-    @api.multi
+    
     def schedule_another_phonecall(self, schedule_time, call_summary,
                                    user_id=False, team_id=False,
                                    tag_ids=False, action='schedule',
@@ -183,7 +183,7 @@ class CrmPhonecall(models.Model):
             self.partner_id = self.opportunity_id.partner_id.id
             self.tag_ids = self.opportunity_id.tag_ids.ids
 
-    @api.multi
+    
     def redirect_phonecall_view(self):
         """Redirect on the phonecall related view."""
         model_data = self.env['ir.model.data']
@@ -211,7 +211,7 @@ class CrmPhonecall(models.Model):
             }
         return value
 
-    @api.multi
+    
     def convert_opportunity(self, opportunity_summary=False, partner_id=False,
                             planned_revenue=0.0, probability=0.0):
         """Convert lead to opportunity."""
@@ -252,7 +252,7 @@ class CrmPhonecall(models.Model):
             opportunity_dict[call.id] = opportunity_id
         return opportunity_dict
 
-    @api.multi
+    
     def action_make_meeting(self):
         """Open meeting's calendar view to schedule a meeting on phonecall."""
         partner_ids = [
@@ -272,7 +272,7 @@ class CrmPhonecall(models.Model):
             }
         return res
 
-    @api.multi
+    
     def action_button_convert2opportunity(self):
         """Convert a phonecall into an opp and redirect to the opp view."""
         opportunity_dict = {}

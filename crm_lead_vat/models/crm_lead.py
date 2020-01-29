@@ -13,7 +13,7 @@ class Lead(models.Model):
         help="Tax Identification Number. The first 2 characters are the "
              "country code.")
 
-    @api.multi
+    
     def _create_lead_partner(self):
         """Add VAT to partner."""
         return (super(Lead, self.with_context(default_vat=self.vat))

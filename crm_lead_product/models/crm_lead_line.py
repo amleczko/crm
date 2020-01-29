@@ -8,13 +8,13 @@ class CrmLeadLine(models.Model):
     _name = "crm.lead.line"
     _description = "Line in CRM Lead"
 
-    @api.multi
+    
     @api.depends('price_unit', 'product_qty')
     def _compute_planned_revenue(self):
         for rec in self:
             rec.planned_revenue = rec.product_qty * rec.price_unit
 
-    @api.multi
+    
     @api.depends('lead_id.probability', 'planned_revenue')
     def _compute_expected_revenue(self):
         for rec in self:

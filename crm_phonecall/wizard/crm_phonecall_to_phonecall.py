@@ -52,7 +52,7 @@ class CrmPhonecall2phonecall(models.TransientModel):
     )
     note = fields.Text()
 
-    @api.multi
+    
     def action_schedule(self):
         """Schedule a phonecall."""
         phonecall_obj = self.env['crm.phonecall']

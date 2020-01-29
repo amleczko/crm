@@ -190,7 +190,7 @@ class CrmClaim(models.Model):
             ctx['default_team_id'] = values.get('team_id')
         return super(CrmClaim, self.with_context(context=ctx)).create(values)
 
-    @api.multi
+    
     def copy(self, default=None):
         default = dict(
             default or {},

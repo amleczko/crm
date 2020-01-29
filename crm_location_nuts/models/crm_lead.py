@@ -33,7 +33,7 @@ class CrmLead(models.Model):
         string="NUTS L4",
     )
 
-    @api.multi
+    
     def _create_lead_partner_data(self, name, is_company, parent_id=False):
         """Sets NUTS region on created partner"""
         partner_data = super()._create_lead_partner_data(
